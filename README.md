@@ -1,4 +1,12 @@
 # Marshalland 
+
+## Caratteristiche principali
+Interazione tra utenti tramite chat e videochiamata WebRTC
+Aggiornamento degli utenti online live
+Aggiornamento e visione dei punteggi personali e degli altri utenti live
+Back-ednd realizzato con Node.js e comunicazione in tempo reale implementata con Socket.io
+
+## Descrizione del gioco
 Marshall è una gattino arancione che ha bisogno di attenzioni e affetto per essere felice, con questa web app l'utente aiuterà Marshall nei suoi bisogni quotidiani per essere felice!
 Il primo passo è il login:
 
