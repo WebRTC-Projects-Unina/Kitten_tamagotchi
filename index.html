@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marshall Tamagotchi - Realtime App</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!--<div id="login-screen">
+    <h2>Come ti chiami?</h2>
+    <input type="text" id="username-input" placeholder="Inserisci il tuo nome!" />
+    <label for="color-input">Scegli di che colore vedere il tuo nome!</label>
+    <input type="color" id="color-input" value="#FF6F61" />
+    <button id="login-button">Entra nella Chat</button>
+  </div>-->
+ <!-- Schermata Login -->
+<div id="login-screen">
+  <div class="login-box">
+    <h2>🎀 Come ti chiami?</h2>
+    <input type="text" id="username-input" placeholder="Inserisci il tuo nome!" />
+    <div class="color-picker-row">
+      <label for="color-input">🌸 Scegli il colore del tuo nome:</label>
+      <input type="color" id="color-input" value="#FF6F61" />
+    </div>
+    <button id="login-button">✨ Entra nella Chat ✨</button>
+  </div>
+</div>
+  
+
+  <div id="main-layout">
+    
+
+
+    <!-- CLASSIFICA A SINISTRA -->
+    <div id="left-panel">
+      <div id="scoreboard">
+        <strong>Classifica:</strong>
+        <ul id="score-list"></ul>
+      </div>
+    </div>
+
+    <!-- GATTINO AL CENTRO -->
+    <div id="center-panel">
+      <h1>Marshall il Gattino</h1>
+      <div id="cat-container">
+        <img id="cat" src="FOTO_1.png" alt="Marshall" />
+      </div>
+
+      <div id="online-users">
+        <strong>Utenti online:</strong>
+        <ul id="user-list"></ul>
+      </div>
+
+      <div id="message"></div>
+      <div id="bottoni">
+      <button onclick="feedCat()">Buon appetito Marshall!</button>
+      <button onclick="sleepCat()">Buonanotte Marshall!</button>
+      <button onclick="waterCat()">Bevi Marshall!</button>
+      <button onclick="startGame()">Gioca con Marshall!</button>
+      <button onclick="startRace()">Corri con Marshall!</button>
+      <button id="logout-button">Logout</button>
+      <button id="video-call-btn" style="display:none">Entra in videochiamata!</button>
+      <button id="tris" style="display:none">sfida un altro utente!</button>
+      <button id="leave-call-btn" style="display:none; margin-left: 5px;">Esci dalla videochiamata</button>
+      
+   <!-- Popup nascosto per il Tris -->
+<div id="ticTacToe-popup" style="display: none;">
+  <h2>Partita a Tris</h2>
+  <div id="ticTacToe-board"></div>
+  <!-- Questo div mostra il messaggio finale -->
+  <div id="ticTacToe-message" style="margin-top: 10px; font-weight: bold;"></div>
+</div>
+
+      
+    </div>
+      <div id="videos" style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px;">
+        <video id="localVideo" autoplay muted></video>
+      </div>
+    </div>
+
+    <!-- CHAT A DESTRA -->
+    <div id="right-panel">
+      <div id="chat-box">
+        <h2>Chat</h2>
+        <ul id="messages"></ul>
+        <form id="chat-form">
+          <input id="chat-input" autocomplete="off" placeholder="Scrivi un messaggio..." />
+          <button type="submit">Invia</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- POPUP CORSA -->
+  <div id="race-popup">
+    <div class="game-container">
+      <h3>Corsa con Marshall!</h3>
+      <p>Premi il tasto → il più velocemente possibile in 10 secondi!</p>
+      <img id="runner" src="FOTO_1.png" style="width:150px" />
+      <p id="race-score">Distanza: 0</p>
+      <button onclick="closeRace()">Chiudi</button>
+    </div>
+  </div>
+
+  <!-- POPUP GIOCO -->
+  <div id="game-popup">
+    <div class="game-container">
+      <h3>Acchiappa il Topo!</h3>
+      <p>Hai 10 secondi per cliccare più topi possibile!</p>
+      <div id="game-area" style="position:relative;width:300px;height:300px;background:#eee;margin:auto;"></div>
+      <p id="game-score">Punteggio: 0</p>
+      <button onclick="closeGame()">Chiudi</button>
+    </div>
+  </div>
+
+  <!-- Script -->
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="app.js"></script>
+
+</body>
+</html>
